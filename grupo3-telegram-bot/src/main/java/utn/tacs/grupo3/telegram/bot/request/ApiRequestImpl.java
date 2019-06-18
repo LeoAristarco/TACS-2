@@ -21,7 +21,7 @@ import utn.tacs.grupo3.telegram.bot.user.UserCredentials;
 
 public class ApiRequestImpl implements ApiRequest{
 	
-	private static final String API_BASE_URL = "http://tacs.us-east-2.elasticbeanstalk.com";
+	private static final String API_BASE_URL = "http://localhost:8080";
 	
 	private static final String NEAR_PLACES = "/places/near?coordinates=:lat,:long";
 	private static final String USER_LISTS_OF_PLACES = "/users/:user-id/list-of-places";
