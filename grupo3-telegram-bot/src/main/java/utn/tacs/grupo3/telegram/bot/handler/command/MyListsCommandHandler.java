@@ -39,7 +39,7 @@ public class MyListsCommandHandler extends AbstractCommandHandler{
 					.append(HtmlHelper.br())
 					.append("See places: ")
 					.append(PlacesBotConstants.VIEW_LIST_COMMAND).append(PlacesBotConstants.COMMAND_SEPARATOR)
-					.append(name.toLowerCase())
+					.append(name.toLowerCase().replace(" ", PlacesBotConstants.COMMAND_SEPARATOR))
 					.append(HtmlHelper.multipleBr(2))
 					);
 			

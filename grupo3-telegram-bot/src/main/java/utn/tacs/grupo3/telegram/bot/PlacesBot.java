@@ -23,6 +23,7 @@ import utn.tacs.grupo3.telegram.bot.handler.inlineQuery.SearchByNameInlineQueryH
 import utn.tacs.grupo3.telegram.bot.handler.inlineQuery.SearchNearMeInlineQueryHandler;
 import utn.tacs.grupo3.telegram.bot.handler.locator.CallbackQueryHandlerLocator;
 import utn.tacs.grupo3.telegram.bot.handler.locator.CommandHandlerLocator;
+import utn.tacs.grupo3.telegram.bot.request.exception.RequestException;
 import utn.tacs.grupo3.telegram.bot.request.exception.SessionExpiredException;
 import utn.tacs.grupo3.telegram.bot.request.exception.TelegramUserNotLoggedException;
 
@@ -70,11 +71,14 @@ public class PlacesBot extends TelegramLongPollingBot{
 			answers = this.handleException(e, update);
 		} catch (SessionExpiredException | TelegramUserNotLoggedException e) {
 			 answers = this.handleUserNotLogged(update);
-		} 
+		} catch (RequestException e) {
+			answers = this.handleRequestException(e, update);
+		}
 		finally {
 			this.sendAnswers(answers);
 		}
 	}
+
 	@Override
 	public String getBotUsername() {
 		return BOT_USERNAME;
@@ -92,7 +96,7 @@ public class PlacesBot extends TelegramLongPollingBot{
 	 */
 	private List<BotApiMethod<?>> handleException(Exception e, Update update){
 		SendMessage errorAnswer = new SendMessage()
-				.setChatId(update.getMessage().getChatId())
+				.setChatId(getChatIdFromUpdate(update))
 				.setText(e.getMessage());
 		
 		return Arrays.asList(errorAnswer);
@@ -103,23 +107,27 @@ public class PlacesBot extends TelegramLongPollingBot{
 	 * @param update
 	 * @return answer
 	 */
-	private List<BotApiMethod<?>> handleUserNotLogged(Update update){
-		String chatId = "";
-		
-		if (update.hasMessage()) {
-			chatId = update.getMessage().getChatId().toString();
-		} else if(update.hasCallbackQuery()){
-			chatId = update.getCallbackQuery().getFrom().getId().toString();
-		} else if (update.hasInlineQuery()) {
-			chatId = update.getInlineQuery().getFrom().getId().toString();
-		}
-		
+	private List<BotApiMethod<?>> handleUserNotLogged(Update update){		
 		SendMessage userNotLoggedAnswer = new SendMessage()
-				.setChatId(chatId)
+				.setChatId(getChatIdFromUpdate(update))
 				.setText("You need to login")
 				.setReplyMarkup(ReplyKeyboardFactory.createInitialKeyBoard());
 		
 		return Arrays.asList(userNotLoggedAnswer);
+	}
+	
+	/**
+	 * Handles requests exceptions
+	 * @param e
+	 * @param update
+	 * @return
+	 */
+	private List<BotApiMethod<?>> handleRequestException(RequestException e, Update update) {
+		SendMessage errorAnswer = new SendMessage()
+				.setChatId(getChatIdFromUpdate(update))
+				.setText(e.getMessage());
+		
+		return Arrays.asList(errorAnswer);
 	}
 	
 	/**
@@ -136,7 +144,8 @@ public class PlacesBot extends TelegramLongPollingBot{
 				}
 			});
 		}		
-	}	
+	}
+	
 	
 	private String getInlineQueryCommand(String query) {
 		if (query.startsWith(PlacesBotConstants.SEARCH_BY_NAME)) {
@@ -145,5 +154,19 @@ public class PlacesBot extends TelegramLongPollingBot{
 			return PlacesBotConstants.SEARCH_BY_NAME;
 		}
 		return "";
-	}	
+	}
+	
+	private String getChatIdFromUpdate(Update update) {
+		String chatId = "";
+		
+		if (update.hasMessage()) {
+			chatId = update.getMessage().getChatId().toString();
+		} else if(update.hasCallbackQuery()){
+			chatId = update.getCallbackQuery().getFrom().getId().toString();
+		} else if (update.hasInlineQuery()) {
+			chatId = update.getInlineQuery().getFrom().getId().toString();
+		}
+		
+		return chatId;
+	}
 }

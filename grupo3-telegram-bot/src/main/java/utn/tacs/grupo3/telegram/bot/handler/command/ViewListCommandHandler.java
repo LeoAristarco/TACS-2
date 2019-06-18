@@ -27,10 +27,11 @@ public class ViewListCommandHandler extends AbstractCommandHandler {
 
 		String listName = removeCommandFromMessageText(message.getText(), PlacesBotConstants.VIEW_LIST_COMMAND);
 
-		ListOfPlaces listOfPlaces = apiRequest.listByName(listName, message.getFrom().getId());		
+		ListOfPlaces listOfPlaces = apiRequest.listByName(listName, message.getFrom().getId());
+		String text = createText(listOfPlaces);
 
 		SendMessage answer = MessageFactory.createSendMessage(message)
-				.setText(HtmlHelper.bold("Select a place"))
+				.setText(text)
 				.setReplyMarkup(createKeyboard(listName, listOfPlaces.getPlaces()));
 
 		return Arrays.asList(answer);
@@ -50,5 +51,15 @@ public class ViewListCommandHandler extends AbstractCommandHandler {
 		return PlacesBotConstants.VIEW_PLACE_CALLBACK + PlacesBotConstants.COMMAND_SEPARATOR + listName
 				+ PlacesBotConstants.COMMAND_SEPARATOR + placeName;
 	}
+	
+	private String createText(ListOfPlaces listOfPlaces) {
+		List<Place> places = listOfPlaces.getPlaces();
+		if (places == null || (places != null && places.isEmpty())) {
+			return "The selected list does not have any place";
+		}
+		
+		return HtmlHelper.bold("Select a place");
+	}
+
 
 }

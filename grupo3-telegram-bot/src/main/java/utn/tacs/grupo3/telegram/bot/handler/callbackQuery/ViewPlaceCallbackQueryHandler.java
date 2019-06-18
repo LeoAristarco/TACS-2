@@ -32,8 +32,8 @@ public class ViewPlaceCallbackQueryHandler implements CallbackQueryHandler{
 		venue.setAddress(place.getAddress())
 			.setChatId(callbackQuery.getMessage().getChatId())
 			.setTitle(place.getName())
-			.setLatitude(place.getLatitude().floatValue())
-			.setLongitude(place.getLongitude().floatValue());
+			.setLatitude(place.getCoordinates().getLatitude().floatValue())
+			.setLongitude(place.getCoordinates().getLongitude().floatValue());
 		return venue;
 	}
 

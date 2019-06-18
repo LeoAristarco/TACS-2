@@ -29,7 +29,7 @@ public class SearchCommandHandler extends AbstractCommandHandler{
 				));
 		
 		SendMessage answer = MessageFactory.createSendMessage(message)
-				.setText("Search places")
+				.setText("Search places. Turn on location services")
 				.setReplyMarkup(keyboard);		
 		
 		return Arrays.asList(answer);

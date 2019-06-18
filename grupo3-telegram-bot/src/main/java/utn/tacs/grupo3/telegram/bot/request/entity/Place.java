@@ -1,4 +1,3 @@
-
 package utn.tacs.grupo3.telegram.bot.request.entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -6,21 +5,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({ "name", "address", "registrationDate", "latitude", "longitude", "foursquareId" })
+@JsonPropertyOrder({ "name", "address", "coordinates", "foursquareId", "visited" })
 public class Place {
 
 	@JsonProperty("name")
 	private String name;
 	@JsonProperty("address")
 	private String address;
-	@JsonProperty("registrationDate")
-	private String registrationDate;
-	@JsonProperty("latitude")
-	private Double latitude;
-	@JsonProperty("longitude")
-	private Double longitude;
+	@JsonProperty("coordinates")
+	private Coordinates coordinates;
 	@JsonProperty("foursquareId")
-	private Object foursquareId;
+	private String foursquareId;
+	@JsonProperty("visited")
+	private Boolean visited;
 
 	@JsonProperty("name")
 	public String getName() {
@@ -42,44 +39,34 @@ public class Place {
 		this.address = address;
 	}
 
-	@JsonProperty("registrationDate")
-	public String getRegistrationDate() {
-		return registrationDate;
+	@JsonProperty("coordinates")
+	public Coordinates getCoordinates() {
+		return coordinates;
 	}
 
-	@JsonProperty("registrationDate")
-	public void setRegistrationDate(String registrationDate) {
-		this.registrationDate = registrationDate;
-	}
-
-	@JsonProperty("latitude")
-	public Double getLatitude() {
-		return latitude;
-	}
-
-	@JsonProperty("latitude")
-	public void setLatitude(Double latitude) {
-		this.latitude = latitude;
-	}
-
-	@JsonProperty("longitude")
-	public Double getLongitude() {
-		return longitude;
-	}
-
-	@JsonProperty("longitude")
-	public void setLongitude(Double longitude) {
-		this.longitude = longitude;
+	@JsonProperty("coordinates")
+	public void setCoordinates(Coordinates coordinates) {
+		this.coordinates = coordinates;
 	}
 
 	@JsonProperty("foursquareId")
-	public Object getFoursquareId() {
+	public String getFoursquareId() {
 		return foursquareId;
 	}
 
 	@JsonProperty("foursquareId")
-	public void setFoursquareId(Object foursquareId) {
+	public void setFoursquareId(String foursquareId) {
 		this.foursquareId = foursquareId;
+	}
+
+	@JsonProperty("visited")
+	public Boolean getVisited() {
+		return visited;
+	}
+
+	@JsonProperty("visited")
+	public void setVisited(Boolean visited) {
+		this.visited = visited;
 	}
 
 }
