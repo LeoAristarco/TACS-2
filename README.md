@@ -37,6 +37,11 @@ Desde el root del proyecto
 ```
 
 #### Run
+Setear variables de entorno
+```
+    MONGO_DB_URI (ej: mongodb://localhost)
+    MONGO_DB_NAME (ej: grupo3-mongodb)    
+```
 
 Desde el root del proyecto
 ```
@@ -88,6 +93,10 @@ Desde el root del proyecto
 ```
 
 #### Run
+Setear variables de entorno
+```
+    API_BASE_URL (ej: http://localhost:8080)
+```
 
 ```
     mvn exec:java
