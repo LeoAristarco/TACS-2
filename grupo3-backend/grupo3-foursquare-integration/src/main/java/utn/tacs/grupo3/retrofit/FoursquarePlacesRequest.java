@@ -15,8 +15,8 @@ import utn.tacs.grupo3.retrofit.pojo.venue.VenuePojo;
 @Component
 public class FoursquarePlacesRequest {
 
-    private final String CLIENT_ID = "0CIZ4KNH3ALVF0GUOZ12A143LUYBUFLGDKF1GBNFF0G0JSSR";
-    private final String CLIENT_SECRET = "BEK4JRCQKDEIZJB3GUBLE3SUNY33WXNRQ5EWBNJFOTOYSHN5";
+    private final String CLIENT_ID = "VWYG3QXBIYTFHSY4ENVFIJAB2IO5TTGYCM4PQRUNCEQKXTG2";
+    private final String CLIENT_SECRET = "IDYZ3GPBB1WBP5N3LLNTY1YDVDSN42XNKW1X4PO142JNORJB";
     private final String DATE = "20180703";
     private final String NEAR = "Buenos Aires";
 

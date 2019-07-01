@@ -1,0 +1,794 @@
+{
+	"info": {
+		"_postman_id": "d89b3f8b-9912-4e55-b217-7db8f4dd1f33",
+		"name": "API_TP_TACS Test (Maxi intenta acceder a datos de otro usuario)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login (Admin)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d3f5d63f-33bf-4369-be69-3e23117afcf4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"JPerez1\",\"password\":\"123\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crear usuario (Elver)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d3f5d63f-33bf-4369-be69-3e23117afcf4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"firstName\":\"Elver\",\"lastName\":\"Galarga\"\n,\"username\":\"ElverX\",\"password\":\"123\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/sign-up",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sign-up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crear usuario (Maxi)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c158664e-bd2d-4992-a31c-527b5d324796",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"firstName\":\"Maxi\",\"lastName\":\"Perez\"\n,\"username\":\"Maxi\",\"password\":\"123\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/sign-up",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sign-up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login (Elver)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d3f5d63f-33bf-4369-be69-3e23117afcf4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"Elver\",\"password\":\"123\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login (Maxi)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d3f5d63f-33bf-4369-be69-3e23117afcf4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"Maxi\",\"password\":\"123\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Maxi intenta crear una listas de lugares de Elver",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3e5c00b2-799a-4e44-8aa2-f85bcceef35b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNYXhpIiwiUk9MIjoiVVNFUiIsImV4cCI6MTYwMzY4MTIwMH0.S3iIp1NwXuA_tCxe3BT6WIUutspZQi2LIYsBUJaopAkFyF17aAFmHJlNlgyqD4yHksa44RFQEcwbTH2rUy8HCQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/Elver/list-of-places/1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"Elver",
+						"list-of-places",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Maxi intenta Registrar un lugar en lista de Elver",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "19250d0f-c360-44e1-8218-4b4cd27853f5",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNYXhpIiwiUk9MIjoiVVNFUiIsImV4cCI6MTYwMzY4MTIwMH0.S3iIp1NwXuA_tCxe3BT6WIUutspZQi2LIYsBUJaopAkFyF17aAFmHJlNlgyqD4yHksa44RFQEcwbTH2rUy8HCQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/Elver/list-of-places/1/4b850a3bf964a520934931e3?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"Elver",
+						"list-of-places",
+						"1",
+						"4b850a3bf964a520934931e3"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Maxi intenta buscar una lista de lugares de Elver",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ee0e6116-9194-44a5-84cd-edc20308549b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNYXhpIiwiUk9MIjoiVVNFUiIsImV4cCI6MTYwMzY4MTIwMH0.S3iIp1NwXuA_tCxe3BT6WIUutspZQi2LIYsBUJaopAkFyF17aAFmHJlNlgyqD4yHksa44RFQEcwbTH2rUy8HCQ"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/Elver/list-of-places/1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"Elver",
+						"list-of-places",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Maxi intenta marcar un lugar como visitado de Elver",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "26489c1b-f13e-4f95-85af-8fca5962d9ca",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNYXhpIiwiUk9MIjoiVVNFUiIsImV4cCI6MTYwMzY4MTIwMH0.S3iIp1NwXuA_tCxe3BT6WIUutspZQi2LIYsBUJaopAkFyF17aAFmHJlNlgyqD4yHksa44RFQEcwbTH2rUy8HCQ"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/Elver/places-visited/UTN FRBA (Sede Campus)?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"Elver",
+						"places-visited",
+						"UTN FRBA (Sede Campus)"
+					],
+					"query": [
+						{
+							"key": "new-name",
+							"value": "lugares feos feos",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Admin] Maxi intenta ver Datos de un usuario:",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "37bcbc12-f646-4f88-b328-a1d1a8bd5779",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNYXhpIiwiUk9MIjoiVVNFUiIsImV4cCI6MTYwMzY4MTIwMH0.S3iIp1NwXuA_tCxe3BT6WIUutspZQi2LIYsBUJaopAkFyF17aAFmHJlNlgyqD4yHksa44RFQEcwbTH2rUy8HCQ"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/administrator/users/Elver",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"administrator",
+						"users",
+						"Elver"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Como administrador quiero poder ver los siguientes datos de un usuario:\nUsuario\nCantidad de listas\nCantidad de lugares visitados en sus listas.\nÚltimo acceso"
+			},
+			"response": []
+		},
+		{
+			"name": "[Admin] Maxi intenta ver la cantidad de usuarios interesados en un lugar",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4e501b8e-b8b8-4fba-afe7-9fa043713083",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNYXhpIiwiUk9MIjoiVVNFUiIsImV4cCI6MTYwMzY4MTIwMH0.S3iIp1NwXuA_tCxe3BT6WIUutspZQi2LIYsBUJaopAkFyF17aAFmHJlNlgyqD4yHksa44RFQEcwbTH2rUy8HCQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/administrator/places/UTN FRBA (Sede Campus)/interested-users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"administrator",
+						"places",
+						"UTN FRBA (Sede Campus)",
+						"interested-users"
+					]
+				},
+				"description": "Como administrador quiero seleccionar un lugar y ver la cantidad de usuarios que se interesaron en el mismo (lo agregaron a una lista)."
+			},
+			"response": []
+		},
+		{
+			"name": "[Admin] Maxi intenta Ver si tienen algún lugar en común.",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0a937e7-38ad-48e2-b14f-223d6529836f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNYXhpIiwiUk9MIjoiVVNFUiIsImV4cCI6MTYwMzY4MTIwMH0.S3iIp1NwXuA_tCxe3BT6WIUutspZQi2LIYsBUJaopAkFyF17aAFmHJlNlgyqD4yHksa44RFQEcwbTH2rUy8HCQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/administrator/places/places-in-common?list-id-1=2&list-id-2=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"administrator",
+						"places",
+						"places-in-common"
+					],
+					"query": [
+						{
+							"key": "list-id-1",
+							"value": "2"
+						},
+						{
+							"key": "list-id-2",
+							"value": "3"
+						}
+					]
+				},
+				"description": "Como administrador quiero seleccionar 2 listas de usuarios diferentes y ver si tienen algún lugar en común."
+			},
+			"response": []
+		},
+		{
+			"name": "[Admin] Maxi Cantidad total de lugares registrados en el sistema en una fecha",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "16b3d72c-2f07-45c2-a413-67996fda9a9d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNYXhpIiwiUk9MIjoiVVNFUiIsImV4cCI6MTYwMzY4MTIwMH0.S3iIp1NwXuA_tCxe3BT6WIUutspZQi2LIYsBUJaopAkFyF17aAFmHJlNlgyqD4yHksa44RFQEcwbTH2rUy8HCQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/administrator/places/registered-places?days=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"administrator",
+						"places",
+						"registered-places"
+					],
+					"query": [
+						{
+							"key": "days",
+							"value": "0"
+						}
+					]
+				},
+				"description": "Como administrador quiero conocer la cantidad total de lugares registrados en el sistema\nEn el día de hoy\nEn los últimos 3 días\nEn la última semana\nEn el último mes\nDesde el inicio de los tiempos\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Maxi cambiar el nombre a una lista de lugares de Elver",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "26489c1b-f13e-4f95-85af-8fca5962d9ca",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNYXhpIiwiUk9MIjoiVVNFUiIsImV4cCI6MTYwMzY4MTIwMH0.S3iIp1NwXuA_tCxe3BT6WIUutspZQi2LIYsBUJaopAkFyF17aAFmHJlNlgyqD4yHksa44RFQEcwbTH2rUy8HCQ"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/Elver/list-of-places/1/?new-name=lugares feos 1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"Elver",
+						"list-of-places",
+						"1",
+						""
+					],
+					"query": [
+						{
+							"key": "new-name",
+							"value": "lugares feos 1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Maxi intenta eliminar una lista de lugares de Elver",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "26489c1b-f13e-4f95-85af-8fca5962d9ca",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNYXhpIiwiUk9MIjoiVVNFUiIsImV4cCI6MTYwMzY4MTIwMH0.S3iIp1NwXuA_tCxe3BT6WIUutspZQi2LIYsBUJaopAkFyF17aAFmHJlNlgyqD4yHksa44RFQEcwbTH2rUy8HCQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/Elver/list-of-places/lugares feos 1/?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"Elver",
+						"list-of-places",
+						"lugares feos 1",
+						""
+					],
+					"query": [
+						{
+							"key": "new-name",
+							"value": "lugares feos feos",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ebf0fb06-4514-4dd7-8845-aa2e90cb03ef",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "072e2088-bac4-40f6-8975-b16da631896a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

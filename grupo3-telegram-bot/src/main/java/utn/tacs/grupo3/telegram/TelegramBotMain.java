@@ -11,19 +11,9 @@ public class TelegramBotMain
     public static void main( String[] args )
     {
     	ApiContextInitializer.init();
-        TelegramBotsApi api = new TelegramBotsApi();
-        
+        TelegramBotsApi api = new TelegramBotsApi();        
         
         PlacesBot placesBot = new PlacesBot();
-        
-//        List<IBotCommand> commands = Arrays.asList(
-//        		TelegramCommandFactory.viewListOfPlacesCommand(), 
-//        		new SearchPlaceCommand(), 
-//        		new AddToListOfPlacesCommand(), 
-//        		new CommandListCommand(placesBot),
-//        		TelegramCommandFactory.listsOfPlacesCommand());
-//        
-//        commands.forEach(cmd -> placesBot.register(cmd));
         
         try {
 			api.registerBot(placesBot);

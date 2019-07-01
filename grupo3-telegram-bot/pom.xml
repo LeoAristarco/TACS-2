@@ -13,13 +13,15 @@
 
 
 	<properties>
-		<maven.compiler.target>11</maven.compiler.target>
-		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
 
 		<telegrambots.version>4.2</telegrambots.version>
 		<exec.maven.version>1.6.0</exec.maven.version>
 		<spring.version>5.1.6.RELEASE</spring.version>
 		<junit.version>4.12</junit.version>
+		
+		<jacoco.version>0.8.4</jacoco.version>
 	</properties>
 
 
@@ -66,6 +68,37 @@
 				<configuration>
 					<mainClass>utn.tacs.grupo3.telegram.TelegramBotMain</mainClass>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>${jacoco.version}</version>
+				<executions>
+
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+
+					<execution>
+						<id>report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+
+					<execution>
+						<id>report-aggregate</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

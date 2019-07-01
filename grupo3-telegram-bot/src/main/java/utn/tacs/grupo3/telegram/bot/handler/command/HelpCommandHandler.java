@@ -1,6 +1,6 @@
 package utn.tacs.grupo3.telegram.bot.handler.command;
 
-import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
 
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
@@ -14,10 +14,13 @@ import utn.tacs.grupo3.telegram.bot.handler.CommandHandler;
 import utn.tacs.grupo3.telegram.bot.helper.HtmlHelper;
 import utn.tacs.grupo3.telegram.bot.user.LoggedUsers;
 
+/**
+ * Handler for /help command
+ */
 public class HelpCommandHandler implements CommandHandler{
 
 	@Override
-	public <T extends Serializable> List<BotApiMethod<?>> handleCommand(Message message) {
+	public List<BotApiMethod<?>> handle(Message message) {
 		SendMessage answer = MessageFactory.createSendMessage(message);
 		String text;
 		
@@ -37,14 +40,13 @@ public class HelpCommandHandler implements CommandHandler{
 					HtmlHelper.multipleBr(2),
 					"To login, please send your username and password as follows",
 					HtmlHelper.br(),
-					"/login USERNAME, PASSWORD"
+					"/login USERNAME PASSWORD"
 					);
 			answer.setReplyMarkup(ReplyKeyboardFactory.createInitialKeyBoard());
 		}
 		
 		answer.setText(text);
 		
-		return List.of(answer);
+		return Arrays.asList(answer);
 	}
-
 }

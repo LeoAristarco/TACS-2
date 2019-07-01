@@ -1,3 +1,4 @@
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const path = require('path')
 
@@ -38,8 +39,8 @@ module.exports = {
         extensions: ['.js', '.jsx']
     },
     output : {
-        publicPath: path.resolve(__dirname, 'build/'),
-        filename: 'build.js'
+        publicPath: path.resolve(__dirname, './dist'),
+        filename: 'index_bundle.js'
     },
     devServer: {
         contentBase: path.join(__dirname, 'public'),
@@ -48,7 +49,11 @@ module.exports = {
         historyApiFallback: true
     },
     plugins: [
+        new HtmlWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin()
+        new webpack.NoEmitOnErrorsPlugin(),
+        new webpack.DefinePlugin({
+            API: process.ENV === 'production' ? JSON.stringify("http://backend-tacs.us-east-1.elasticbeanstalk.com") : JSON.stringify("http://localhost:8080")
+        })
     ]
 }

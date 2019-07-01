@@ -1,6 +1,6 @@
 package utn.tacs.grupo3.telegram.bot.handler.callbackQuery;
 
-import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,34 +12,36 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKe
 
 import utn.tacs.grupo3.telegram.bot.constants.PlacesBotConstants;
 import utn.tacs.grupo3.telegram.bot.handler.CallbackQueryHandler;
-import utn.tacs.grupo3.telegram.bot.request.ApiRequestImpl;
-import utn.tacs.grupo3.telegram.bot.user.LoggedUsers;
 
 public class AddPlaceToListCallbackQueryHandler implements CallbackQueryHandler{
 
 	@Override
-	public <T extends Serializable> List<BotApiMethod<?>> handleCommand(CallbackQuery callbackQuery) {
-		String placeId = callbackQuery.getData().split("_")[1];
+	public List<BotApiMethod<?>> handle(CallbackQuery callbackQuery) {
+		
+		List<String> listNames = apiRequest.listNames(callbackQuery.getFrom().getId());
+
+		String placeId = callbackQuery.getData().split(PlacesBotConstants.COMMAND_SEPARATOR)[1];	
+		
 		SendMessage answer = new SendMessage()
-				.setChatId(LoggedUsers.getChatId(callbackQuery.getFrom().getId()))
-				.setText("Select a list to add a new place");
+				.setChatId(callbackQuery.getFrom().getId().toString())
+				.setText("Select a list to add a new place")
+				.setReplyMarkup(createKeyboard(placeId, listNames));
 		
+		return Arrays.asList(answer);
+	}
+
+	private InlineKeyboardMarkup createKeyboard(String placeId, List<String> listNames) {
 		InlineKeyboardMarkup kb = new InlineKeyboardMarkup();
-		
-		List<String> listNames = new ApiRequestImpl().listNames(
-				LoggedUsers.getUsername(callbackQuery.getFrom().getId()),
-				callbackQuery.getFrom().getId()
-				);
-		
 		List<List<InlineKeyboardButton>> buttons = listNames.stream()
 				.map(listName -> 
-					List.of(new InlineKeyboardButton(listName).setCallbackData(PlacesBotConstants.ADD_PLACE_TO_SELECTED_LIST + "_" + listName + "_" + placeId)))
+					Arrays.asList(new InlineKeyboardButton(listName).setCallbackData(
+							PlacesBotConstants.ADD_PLACE_TO_SELECTED_LIST + PlacesBotConstants.COMMAND_SEPARATOR + 
+							listName + PlacesBotConstants.COMMAND_SEPARATOR + 
+							placeId)))
 				.collect(Collectors.toList());
 		
 		kb.setKeyboard(buttons);
-		answer.setReplyMarkup(kb);
-		
-		return List.of(answer);
+		return kb;
 	}
 
 }

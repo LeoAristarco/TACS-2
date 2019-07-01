@@ -15,7 +15,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 render(
     <div>
         <Router history={history}>
-            <App/>
+            <App history={history}/>
         </Router>
     </div>,
     document.getElementById('app')

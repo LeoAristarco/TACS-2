@@ -7,7 +7,7 @@ public class HtmlHelper {
 	}
 	
 	public static String italic(String toItalic) {
-		return "<i>" + toItalic + "</b>";
+		return "<i>" + toItalic + "</i>";
 	}
 	
 	public static String br() {
@@ -15,7 +15,13 @@ public class HtmlHelper {
 	}
 	
 	public static String multipleBr(int count) {
-		return br().repeat(count);
+		StringBuffer multipleBr = new StringBuffer();
+		
+		for (int i = 0; i < count; i++) {
+			multipleBr.append(br());
+		}
+		
+		return multipleBr.toString();
 	}
 	
 	public static String formatText(String...args) {

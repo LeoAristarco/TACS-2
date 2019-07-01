@@ -1,9 +1,29 @@
 # TACS-2019-GRUPO3
 Repositorio del TP cuatrimestral de TACS UTN 1C-2019
 
+#### Administrador
+username: JPerez1
+,password: 123
+
 ### Proyecto backend
 
-### Install
+#### Precondiciones
+Pull imagen de MongoDB
+```
+docker pull mongo:4.0.4
+```
+Para ejecutar la api en local y ejecutar tests
+```
+docker run -d -p 27017-27019:27017-27019 --name grupo3-mongodb mongo:4.0.4
+docker run -d -p 27027-27029:27017-27019 --name grupo3-mongodb-test mongo:4.0.4
+```
+Si los containers están apagados
+```
+docker start grupo3-mongodb
+docker start grupo3-mongodb-test
+```
+
+#### Install
 
 Desde el root del proyecto
 
@@ -34,7 +54,7 @@ Desde el root del proyecto
 ```
 
 ## Endpoints
-## [Importante] Ver collecion de Postman para ver los parametros y el body que se envian en los metodos HTTP
+## https://docs.google.com/spreadsheets/d/1xrxhWOG7OjL9U1zAM0P0Gv7L8v-4OYh7J83FAs1J9Yw/edit#gid=0
 
 | Method | URI | Descripción | Observación | 
 | ------ | ------ | ------ | ------ |
@@ -48,11 +68,11 @@ Desde el root del proyecto
 | GET | /users/{user-id}/list-of-places/{list-id} | buscar una lista de lugares | 
 | DELETE | /users/{user-id}/list-of-places/{list-id} | Eliminar una lista de lugares | 
 | PUT | /users/{user-id}/list-of-places/{list-id} | Modificar una lista de lugares | parameter=new-name
-| PUT | /users/{user-id}/places-visited/{place-id} | marcar un lugar como visitado | 
-| GET | /users/{user-id} | Ver Datos de un usuario | 
-| GET | /places/{place-id}/interested-users | Cantidad de usuarios interesados en un lugar | 
-| GET | /places/places-in-common | Obtener lugares en comun entre usuarios | parameter1=list-id-1 parameter2=,list-id-2
-| GET | /places/registered-places | Consultar lugares registrados en el sistema | days: hoy, últimos 3 días. última semana, último mes, todos (days=0)
+| PUT | /users/{user-id}/{list-id}/places-visited/{place-id} | Marcar un lugar como visitado | user-id = username, list-id = nombre de lista, place-id = id de foursquare
+| GET | /administrator/users/{user-id} | Ver Datos de un usuario | 
+| GET | /administrator/places/{place-id}/interested-users | Nombres de usuario interesados en un lugar | place-id es el id de foursquare
+| GET | /administrator/places/places-in-common | Obtener lugares en comun entre usuarios | parameters: list-id-1, user-id-1, list-id-2, user-id-2
+| GET | /administrator/places/registered-places | Consultar lugares registrados en el sistema | days: hoy, últimos 3 días. última semana, último mes, todos (days=0)
 | GET | /places | Todos los lugares | 
 
 ##
@@ -82,21 +102,11 @@ Desde el root del proyecto
 ```
     TACS20191CGrupo3Bot
 ```
+    
 ##
 ### Proyecto React
+
 ```
     cd grupo3-frontend-react/grupo3-react-application
     npm i
     npm start
-```
-
-#### URLs para probar el frontend
-```
-    http://localhost:8008/stats
-    http://localhost:8008/users/list-of-places
-    http://localhost:8008/places
-    http://localhost:8008/users
-    http://localhost:8008/signup
-    http://localhost:8008/login
-    
-```

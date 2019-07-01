@@ -1,5 +1,8 @@
 package utn.tacs.grupo3.telegram.bot.constants;
 
+import java.util.Arrays;
+import java.util.List;
+
 public final class PlacesBotConstants {
 	
 	//Commands
@@ -19,5 +22,14 @@ public final class PlacesBotConstants {
 	//Inline queries
 	public static final String SEARCH_NEAR_ME_INLINE = "near me";
 	public static final String SEARCH_BY_NAME = "name ";
+	
+	public static final String COMMAND_SEPARATOR = "_";
+	
+	public static List<String> allCommands(){
+		return Arrays.asList(
+				START_COMMAND, LOGIN_COMMAND, HELP_COMMAND, MY_LISTS_COMMAND, VIEW_LIST_COMMAND, SEARCH_COMMAND, LOGOUT_COMMAND, 
+				VIEW_PLACE_CALLBACK, ADD_PLACE_TO_LIST, ADD_PLACE_TO_SELECTED_LIST,
+				SEARCH_NEAR_ME_INLINE, SEARCH_BY_NAME);
+	}
 
 }

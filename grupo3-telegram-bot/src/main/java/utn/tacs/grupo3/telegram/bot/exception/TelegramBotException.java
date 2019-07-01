@@ -8,4 +8,8 @@ public class TelegramBotException extends RuntimeException{
 		super(message);
 	}
 
+	public TelegramBotException(String message, Throwable cause) {
+		super(message, cause);
+	}	
+
 }

@@ -1,5 +1,6 @@
 package utn.tacs.grupo3.telegram.bot.factory;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,7 +13,7 @@ public class InlineQueryResultFactory {
 
 	
 	public static List<InlineQueryResult> createInlineQueryResults(InlineQueryResult...results) {
-		return List.of(results);
+		return Arrays.asList(results);
 	}
 	
 	public static List<InlineQueryResult> createNearMeQueryResultsWithKeyboard(List<Venue> venues){

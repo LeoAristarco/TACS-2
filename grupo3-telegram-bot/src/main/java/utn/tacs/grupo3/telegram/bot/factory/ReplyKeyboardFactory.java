@@ -1,6 +1,7 @@
 package utn.tacs.grupo3.telegram.bot.factory;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
@@ -15,14 +16,14 @@ public final class ReplyKeyboardFactory {
 	private ReplyKeyboardFactory() {}
 	
 	public static ReplyKeyboardMarkup createInitialKeyBoard() {
-		return createKeyboard(List.of(PlacesBotConstants.HELP_COMMAND));
+		return createKeyboard(Arrays.asList(PlacesBotConstants.HELP_COMMAND));
 	}
 	
 	public static ReplyKeyboardMarkup createCommandKeyboard() {
 		return createKeyboard(
-				List.of(PlacesBotConstants.MY_LISTS_COMMAND, PlacesBotConstants.SEARCH_COMMAND),
-				List.of(PlacesBotConstants.LOGOUT_COMMAND),
-				List.of(PlacesBotConstants.HELP_COMMAND)
+				Arrays.asList(PlacesBotConstants.MY_LISTS_COMMAND, PlacesBotConstants.SEARCH_COMMAND),
+				Arrays.asList(PlacesBotConstants.LOGOUT_COMMAND),
+				Arrays.asList(PlacesBotConstants.HELP_COMMAND)
 				);		
 	}
 	
@@ -36,7 +37,7 @@ public final class ReplyKeyboardFactory {
 		
 		List<KeyboardRow> keyboardRows = new ArrayList<KeyboardRow>(lists.length);
 		
-		List.of(lists).forEach(aList -> {
+		Arrays.asList(lists).forEach(aList -> {
 			KeyboardRow row = new KeyboardRow();
 			aList.forEach(anElement -> row.add(new KeyboardButton(anElement)));
 			keyboardRows.add(row);

@@ -1,11 +1,8 @@
 package utn.tacs.grupo3.spring.controller;
 
-import java.util.List;
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.http.ResponseEntity;
 
-
-import utn.tacs.grupo3.model.exception.ExceptionbyResourceNotFound;
-import utn.tacs.grupo3.model.User;
+import utn.tacs.grupo3.spring.controller.response.Response;
 
 /**
  * Interface for user-related controller methods
@@ -17,18 +14,7 @@ public interface UserController {
      *
      * @return a list of users
      */
-    List<User> users();
-
-
-
-    /**
-     * Searches a user by its id
-     *
-     * @param userId
-     * @return
-     */
-    User userById(String userId) throws ExceptionbyResourceNotFound;
-
+    ResponseEntity<Response> users();
 
     /**
      * Register a new place in an user's list of places
@@ -36,9 +22,8 @@ public interface UserController {
      * @param userId
      * @param listId
      * @param placeId
-     * @return
      */
-    String registerPlaceInListOfPlaces(String userId, String listId, String placeId) throws ExceptionbyResourceNotFound;
+    ResponseEntity<Response> registerPlaceInListOfPlaces(String userId, String listId, String placeId);
 
 
     /**
@@ -46,7 +31,14 @@ public interface UserController {
      *
      * @param userId
      * @param placeId
+     */
+    ResponseEntity<Response> markAsVisitedAPlace(String userId, String listId, String placeId);
+    
+    /**
+     * Returns the data of the current user
+     * @param token
      * @return
      */
-    String markAsVisitedAPlace(String userId, String placeId) throws ExceptionbyResourceNotFound;
+    ResponseEntity<Response> me(String token);
+
 }

@@ -1,9 +1,8 @@
 package utn.tacs.grupo3.spring.converter;
 
-import java.time.LocalDate;
-
 import org.springframework.stereotype.Component;
 
+import utn.tacs.grupo3.model.Coordinates;
 import utn.tacs.grupo3.model.Place;
 import utn.tacs.grupo3.retrofit.pojo.venue.FullVenue;
 
@@ -17,9 +16,12 @@ public class FullVenueToPlaceConverter implements Converter<FullVenue, Place>{
     	place.setName(venue.getName());
     	place.setAddress(venue.getLocation().getAddress());
     	place.setFoursquareId(venue.getId());
-    	place.setLatitude(venue.getLocation().getLat().floatValue());
-    	place.setLongitude(venue.getLocation().getLng().floatValue());
-    	place.setRegistrationDate(LocalDate.now());
+    	place.setVisited(Boolean.FALSE);
+    	place.setCoordinates(
+    			new Coordinates(
+    					venue.getLocation().getLat().floatValue(), 
+    					venue.getLocation().getLng().floatValue())
+    			);
 		
     	return place;
 	}

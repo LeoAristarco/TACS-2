@@ -1,0 +1,23 @@
+.home-container {
+    padding: 156px 350px;
+}
+.home-container h2 {
+    margin-left: 40px;
+}
+.home-options {
+    margin: 40px;
+}
+
+.header-options{
+    width: 100%;
+    margin-bottom: 60px;
+}
+.header-options .title-header, .header-options .log-out{
+    display: inline-block;
+}
+
+.header-options .log-out {
+    margin-bottom: -20px;
+    margin-top: -40px;
+    margin-left: 720px;
+}

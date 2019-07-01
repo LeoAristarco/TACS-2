@@ -19,16 +19,16 @@ public final class LoggedUsers {
 		return loggedUsers.get(telegramId).getUserName();
 	}
 	
-	public static String getChatId(Integer telegramId) {
-		return loggedUsers.get(telegramId).getChatId();
-	}
+//	public static String getChatId(Integer telegramId) {
+//		return loggedUsers.get(telegramId).getChatId();
+//	}
 	
 	public static String getToken(Integer telegramId) {
 		return loggedUsers.get(telegramId).getToken();
 	}
 	
-	public static void addLoggedUser(Integer telegramId, String username, String chatId, String token) {
-		loggedUsers.put(telegramId, new LoggedUser(username, chatId, token));
+	public static void addLoggedUser(Integer telegramId, String username, String token) {
+		loggedUsers.put(telegramId, new LoggedUser(username, token));
 	}
 	
 	public static void removeLoggedUser(Integer telegramId) {

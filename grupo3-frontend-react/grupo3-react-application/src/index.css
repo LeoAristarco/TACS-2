@@ -74,3 +74,10 @@ min-height: 20vh;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.button-delete {
+  margin-left: 40px;
+}
+.button-places {
+  margin-left: 80px;
+}

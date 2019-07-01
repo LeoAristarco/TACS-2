@@ -1,6 +1,8 @@
 package utn.tacs.grupo3.spring.controller;
 
 import utn.tacs.grupo3.model.User;
+import utn.tacs.grupo3.model.exception.signUpValidation.ExceptionbySignUpValidation;
+import utn.tacs.grupo3.spring.controller.response.Response;
 
 public interface LoginController {
     /**
@@ -9,5 +11,5 @@ public interface LoginController {
      * @param user
      * @return
      */
-    String createUser(User user);
+    Response createUser(User user) throws ExceptionbySignUpValidation;
 }
