@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open --mode development",
-    "prebuild": "rm -Rf build && mkdir build",
-    "build": "npm run prebuild && webpack --mode production"
+    "start": "webpack-dev-server --open http://localhost:8008/login  --mode development",
+    "build": "webpack --mode production"
   },
   "author": "Grupo3",
   "license": "ISC",
