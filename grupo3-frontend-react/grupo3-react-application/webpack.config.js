@@ -53,7 +53,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
-            API: process.ENV !== 'production' ? JSON.stringify("http://backend-tacs.us-east-1.elasticbeanstalk.com") : JSON.stringify("http://localhost:8080")
+            API: process.ENV === 'production' ? JSON.stringify("http://backend-tacs.us-east-1.elasticbeanstalk.com") : JSON.stringify("http://localhost:8080")
         })
     ]
 }
