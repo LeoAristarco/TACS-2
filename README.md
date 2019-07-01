@@ -2,8 +2,8 @@
 Repositorio del TP cuatrimestral de TACS UTN 1C-2019
 
 #### Administrador
-username:JPerez1
-,password:123
+username: JPerez1
+,password: 123
 
 ### Proyecto backend
 
@@ -103,4 +103,10 @@ Desde el root del proyecto
     TACS20191CGrupo3Bot
 ```
     
+##
+### Proyecto React
+
 ```
+    cd grupo3-frontend-react/grupo3-react-application
+    npm i
+    npm start
