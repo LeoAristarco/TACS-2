@@ -1,3 +1,24 @@
+## Endpoints
+
+| Method | URI | Descripción | Observación | 
+| ------ | ------ | ------ | ------ |
+| GET | /users | Todos los usuarios | 
+| POST | /sign-up | Crear un usuario | body=JSON
+| POST | /login | login a un usuario | body=JSON
+| GET | /places/near | Lugares cercanos a una coordenada | parameter=coordinates
+| POST | /users/{user-id}/list-of-places{list-id}/{place-id} |Registrar un lugar en una lista de lugares | place-id es el id de foursquare
+| POST | /users/{user-id}/list-of-places/{list-id} | crear una listas de lugares | 
+| GET | /users/{user-id}/list-of-places | Listas de lugares favoritos | 
+| GET | /users/{user-id}/list-of-places/{list-id} | buscar una lista de lugares | 
+| DELETE | /users/{user-id}/list-of-places/{list-id} | Eliminar una lista de lugares | 
+| PUT | /users/{user-id}/list-of-places/{list-id} | Modificar una lista de lugares | parameter=new-name
+| PUT | /users/{user-id}/{list-id}/places-visited/{place-id} | Marcar un lugar como visitado | user-id = username, list-id = nombre de lista, place-id = id de foursquare
+| GET | /administrator/users/{user-id} | Ver Datos de un usuario | 
+| GET | /administrator/places/{place-id}/interested-users | Nombres de usuario interesados en un lugar | place-id es el id de foursquare
+| GET | /administrator/places/places-in-common | Obtener lugares en comun entre usuarios | parameters: list-id-1, user-id-1, list-id-2, user-id-2
+| GET | /administrator/places/registered-places | Consultar lugares registrados en el sistema | days: hoy, últimos 3 días. última semana, último mes, todos (days=0)
+| GET | /places | Todos los lugares | 
+
 #### Administrador
 username: JPerez1
 ,password: 123
@@ -49,27 +70,6 @@ Desde el root del proyecto
 ```
     http://localhost:8080
 ```
-
-## Endpoints
-
-| Method | URI | Descripción | Observación | 
-| ------ | ------ | ------ | ------ |
-| GET | /users | Todos los usuarios | 
-| POST | /sign-up | Crear un usuario | body=JSON
-| POST | /login | login a un usuario | body=JSON
-| GET | /places/near | Lugares cercanos a una coordenada | parameter=coordinates
-| POST | /users/{user-id}/list-of-places{list-id}/{place-id} |Registrar un lugar en una lista de lugares | place-id es el id de foursquare
-| POST | /users/{user-id}/list-of-places/{list-id} | crear una listas de lugares | 
-| GET | /users/{user-id}/list-of-places | Listas de lugares favoritos | 
-| GET | /users/{user-id}/list-of-places/{list-id} | buscar una lista de lugares | 
-| DELETE | /users/{user-id}/list-of-places/{list-id} | Eliminar una lista de lugares | 
-| PUT | /users/{user-id}/list-of-places/{list-id} | Modificar una lista de lugares | parameter=new-name
-| PUT | /users/{user-id}/{list-id}/places-visited/{place-id} | Marcar un lugar como visitado | user-id = username, list-id = nombre de lista, place-id = id de foursquare
-| GET | /administrator/users/{user-id} | Ver Datos de un usuario | 
-| GET | /administrator/places/{place-id}/interested-users | Nombres de usuario interesados en un lugar | place-id es el id de foursquare
-| GET | /administrator/places/places-in-common | Obtener lugares en comun entre usuarios | parameters: list-id-1, user-id-1, list-id-2, user-id-2
-| GET | /administrator/places/registered-places | Consultar lugares registrados en el sistema | days: hoy, últimos 3 días. última semana, último mes, todos (days=0)
-| GET | /places | Todos los lugares | 
 
 ##
 ### Proyecto Telegram
