@@ -1,3 +1,5 @@
+Se desarrolló una API RESTful que permite a usuarios manejar lugares utilizando diferentes criterios. Como fuente para los mismos se utilizó la API de foursquare.
+
 ## Endpoints
 
 | Method | URI | Descripción | Observación | 
