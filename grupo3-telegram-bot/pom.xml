@@ -19,7 +19,7 @@
 		<telegrambots.version>4.2</telegrambots.version>
 		<exec.maven.version>1.6.0</exec.maven.version>
 		<spring.version>5.1.6.RELEASE</spring.version>
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13.1</junit.version>
 		
 		<jacoco.version>0.8.4</jacoco.version>
 	</properties>
